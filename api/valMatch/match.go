@@ -1,6 +1,9 @@
 package api
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"val/api"
+)
 
 type MatchDto struct {
 	MatchInfo    MatchInfoDto     `json:"matchInfo"`
@@ -145,7 +148,7 @@ type AbilityDto struct {
 }
 
 func NewValMatch(apiKey string, matchId int) MatchDto {
-	client := NewClient(apiKey, "val/match/v1/matches/"+string(rune(matchId)))
+	client := api.NewClient(apiKey, "val/match/v1/matches/"+string(rune(matchId)))
 
 	var valMatch = MatchDto{}
 

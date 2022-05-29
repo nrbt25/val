@@ -1,6 +1,9 @@
 package api
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"val/api"
+)
 
 type ContentItemDto struct {
 	Name           string            `json:"name"`
@@ -56,8 +59,8 @@ type ValContent struct {
 	Acts         []ActDto         `json:"acts"`
 }
 
-func NewValContent(apiKey string) ValContent {
-	client := NewClient(apiKey, "val/content/v1/contents")
+func GetContent(apiKey string) ValContent {
+	client := api.NewClient(apiKey, "val/content/v1/contents")
 
 	var valContent = ValContent{}
 
