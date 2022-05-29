@@ -31,6 +31,10 @@ func NewClient(apiKey, route string) []byte {
 
 	defer res.Body.Close()
 
+	if res.StatusCode != 200 {
+		panic(string(rune(res.StatusCode)) + ": " + GetStatus(res.StatusCode))
+	}
+
 	body, err := io.ReadAll(res.Body)
 
 	if err != nil {

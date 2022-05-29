@@ -145,7 +145,7 @@ type AbilityDto struct {
 }
 
 func NewValMatch(apiKey string, matchId int) MatchDto {
-	client := NewClient(apiKey, "val/match/v1/matches/"+string(matchId))
+	client := NewClient(apiKey, "val/match/v1/matches/"+string(rune(matchId)))
 
 	var valMatch = MatchDto{}
 
