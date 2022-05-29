@@ -1,14 +1,12 @@
 package api
 
 import (
-	"fmt"
 	"io"
 	"net/http"
 )
 
 const (
-	HOST  string = "https://ap.api.riotgames.com"
-	ROUTE string = "val/content/v1/contents"
+	HOST string = "https://ap.api.riotgames.com"
 )
 
 type ClientRequest struct {
@@ -16,9 +14,9 @@ type ClientRequest struct {
 	Route string
 }
 
-func NewClient(apiKey string) []byte {
+func NewClient(apiKey, route string) []byte {
 	client := &http.Client{}
-	req, err := http.NewRequest("GET", HOST+"/"+ROUTE, nil)
+	req, err := http.NewRequest("GET", HOST+"/"+route, nil)
 
 	if err != nil {
 		panic(err)
@@ -38,8 +36,6 @@ func NewClient(apiKey string) []byte {
 	if err != nil {
 		panic(err)
 	}
-
-	fmt.Println(string(body))
 
 	return body
 }

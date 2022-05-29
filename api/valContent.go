@@ -57,7 +57,7 @@ type ValContent struct {
 }
 
 func NewValContent(apiKey string) ValContent {
-	client := NewClient(apiKey)
+	client := NewClient(apiKey, "val/content/v1/contents")
 
 	var valContent = ValContent{}
 
