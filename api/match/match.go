@@ -2,7 +2,7 @@ package match
 
 import (
 	"encoding/json"
-	"val/api"
+	"val/client"
 )
 
 type MatchDto struct {
@@ -148,7 +148,7 @@ type AbilityDto struct {
 }
 
 func NewValMatch(apiKey string, matchId int) MatchDto {
-	client := api.NewClient(apiKey, "val/match/v1/matches/"+string(rune(matchId)))
+	client := client.NewClient(apiKey, "val/match/v1/matches/"+string(rune(matchId)))
 
 	var valMatch = MatchDto{}
 

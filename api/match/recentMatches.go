@@ -1,8 +1,8 @@
-package api
+package match
 
 import (
 	"encoding/json"
-	"val/api"
+	"val/client"
 )
 
 type RecentMatchesDto struct {
@@ -11,7 +11,7 @@ type RecentMatchesDto struct {
 }
 
 func GetRecentMatches(apiKey, queue string) RecentMatchesDto {
-	client := api.NewClient(apiKey, "val/match/v1/recent-matches/by-queue/"+queue)
+	client := client.NewClient(apiKey, "val/match/v1/recent-matches/by-queue/"+queue)
 
 	var recentMatches = RecentMatchesDto{}
 

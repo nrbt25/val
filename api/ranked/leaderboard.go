@@ -2,7 +2,7 @@ package ranked
 
 import (
 	"encoding/json"
-	"val/api"
+	"val/client"
 )
 
 type LeaderBoardDto struct {
@@ -22,7 +22,7 @@ type PlayerDto struct {
 }
 
 func GetLeaderBoard(apiKey, actId string) LeaderBoardDto {
-	client := api.NewClient(apiKey, "val/match/v1/matches/"+actId)
+	client := client.NewClient(apiKey, "val/match/v1/matches/"+actId)
 
 	var leaderBoard = LeaderBoardDto{}
 

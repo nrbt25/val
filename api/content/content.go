@@ -2,7 +2,7 @@ package content
 
 import (
 	"encoding/json"
-	"val/api"
+	"val/client"
 )
 
 type ContentItemDto struct {
@@ -60,7 +60,7 @@ type ValContent struct {
 }
 
 func GetContent(apiKey string) ValContent {
-	client := api.NewClient(apiKey, "val/content/v1/contents")
+	client := client.NewClient(apiKey, "val/content/v1/contents")
 
 	var valContent = ValContent{}
 

@@ -1,4 +1,4 @@
-package api
+package client
 
 var statusCode = map[int]string{
 	200: "Bad request",

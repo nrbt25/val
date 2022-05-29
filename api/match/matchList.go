@@ -1,8 +1,8 @@
-package api
+package match
 
 import (
 	"encoding/json"
-	"val/api"
+	"val/client"
 )
 
 type MatchListDto struct {
@@ -17,7 +17,7 @@ type MatchlistEntryDto struct {
 }
 
 func GetMatchlistByPuuid(apiKey, puuid string) MatchListDto {
-	client := api.NewClient(apiKey, "val/match/v1/matchlists/by-puuid/"+puuid)
+	client := client.NewClient(apiKey, "val/match/v1/matchlists/by-puuid/"+puuid)
 
 	var matchListDto = MatchListDto{}
 
